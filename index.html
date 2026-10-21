@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programmazione — Editor</title>
+<link rel="apple-touch-icon" href="app-icon-180.png">
+<link rel="icon" type="image/png" href="app-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Programmazione Lumière">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=IBM+Plex+Mono:wght@500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Programmazione Cinema</h1>
+<div class="sub">Inserisci una volta, esporta stampa A5 · sfondo mobile · banner pubblico</div>
+
+<div class="tabs">
+  <button class="active" data-tab="edit">Editor</button>
+  <button data-tab="print">Anteprima stampa A5</button>
+  <button data-tab="mobile">Anteprima sfondo mobile</button>
+  <button data-tab="banner">Anteprima banner pubblico</button>
+</div>
+
+<!-- ================= EDITOR ================= -->
+<div class="panel active" id="panel-edit">
+  <div id="rooms-editor"></div>
+</div>
+
+<!-- ================= PRINT ================= -->
+<div class="panel" id="panel-print">
+  <div class="toolbar">
+    <button class="btn-export" onclick="exportPDF()">Scarica PDF (Stampa A5)</button>
+  </div>
+  <div class="preview-wrap"><div id="sheet-print" class="sheet"></div></div>
+</div>
+
+<!-- ================= MOBILE ================= -->
+<div class="panel" id="panel-mobile">
+  <div class="toolbar">
+    <button class="btn-export" onclick="exportPNG('sheet-mobile','sfondo-mobile')">Scarica PNG (Sfondo mobile)</button>
+  </div>
+  <div class="preview-wrap"><div id="sheet-mobile" class="sheet"></div></div>
+</div>
+
+<!-- ================= BANNER ================= -->
+<div class="panel" id="panel-banner">
+  <div class="toolbar">
+    <label class="toggle"><input type="checkbox" id="toggle-sala"> Mostra sala</label>
+    <label class="toggle"><input type="checkbox" id="toggle-prezzo"> Mostra prezzi</label>
+    <label class="toggle headline-field">Titolo
+      <input type="text" id="banner-headline" maxlength="40" autocomplete="off" autocapitalize="characters" enterkeyhint="done">
+    </label>
+    <button type="button" class="btn-headline-auto" id="banner-headline-auto">Automatico</button>
+    <button class="btn-export" onclick="exportPDFBanner()">Scarica PDF (A4 orizzontale)</button>
+    <button class="btn-export" onclick="exportPNG('sheet-banner','banner-pubblico-monitor','jpeg')">Scarica JPEG (per monitor)</button>
+  </div>
+  <div class="preview-wrap"><div id="sheet-banner" class="sheet"></div></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
