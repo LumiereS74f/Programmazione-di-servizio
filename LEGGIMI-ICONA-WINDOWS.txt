@@ -1,0 +1,5 @@
+PROGRAMMAZIONE LUMIÈRE — VERSIONE LOCALE CON ICONA WINDOWS
+
+- L’icona è stata aggiunta al sito come favicon e icona dell’app.
+- Per usare l’icona come icona di un collegamento Windows: salva lumiere-locale.ico in una cartella permanente; crea un collegamento a index.html o al browser; clic destro sul collegamento > Proprietà > Cambia icona > Sfoglia e seleziona lumiere-locale.ico.
+- Per avviare il sito, apri index.html con Chrome o Edge.
